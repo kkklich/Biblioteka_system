@@ -1,0 +1,25 @@
+﻿<Page x:Class="Biblioteka_system.Main_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Biblioteka_system"
+      mc:Ignorable="d" 
+      d:DesignHeight="397" d:DesignWidth="794"
+      Title="Main_Page">
+
+    <Grid  >
+        <Label x:Name="label" Content="Program komputerowy Biblioteka" Height="61" Margin="219,10,205,0" TextBlock.TextAlignment="Center" VerticalAlignment="Top" Width="376" Foreground="#FFC24040" FontSize="24" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center"/>
+        <Button x:Name="btn_klient" Content="Klient" HorizontalAlignment="Left" Margin="598,76,0,0" VerticalAlignment="Top" Width="162" RenderTransformOrigin="0.5,0.5" Height="53" Click="Btn_klient_Click"/>
+        <Button x:Name="btn_ksiazki" Content="Książki" HorizontalAlignment="Left" Margin="598,149,0,0" VerticalAlignment="Top" Width="162" RenderTransformOrigin="0.5,0.5" Height="53" Click="Btn_ksiazki_Click"/>
+        <Button x:Name="btn_autorzy" Content="Autorzy" HorizontalAlignment="Left" Margin="598,216,0,0" VerticalAlignment="Top" Width="162" RenderTransformOrigin="0.5,0.5" Height="53" Click="Btn_autorzy_Click" />
+        <Button x:Name="btn_lista_wypozyczen" Content="Lista wypożyczeń" HorizontalAlignment="Left" Margin="598,291,0,0" VerticalAlignment="Top" Width="162" RenderTransformOrigin="0.5,0.5" Height="53" Click="Btn_lista_wypozyczen_Click" />
+        <Label x:Name="label1" Content="Przeglądanie, dodawanie, edytowanie, usuwanie klientów" HorizontalAlignment="Left" Margin="51,76,0,0" VerticalAlignment="Top" Height="53" Width="497" FontSize="15"/>
+        <Label x:Name="label2" Content="Przeglądanie, dodawanie, edytoawnie, usuwanie książek" HorizontalAlignment="Left" Height="53" Margin="51,149,0,0" VerticalAlignment="Top" Width="497" FontSize="15"/>
+        <Label x:Name="label3" Content="Przeglądanie, dodawanie, edytowanie, usuwanie autorów" HorizontalAlignment="Left" Height="53" Margin="51,216,0,0" VerticalAlignment="Top" Width="497" FontSize="15"/>
+        <Label x:Name="label4" Content="Lista wypożyczeń" HorizontalAlignment="Left" Height="53" Margin="51,291,0,0" VerticalAlignment="Top" Width="497" FontSize="15"/>
+        <Button x:Name="btn_wypozycz_Copy" Content="Wypożycz" HorizontalAlignment="Left" Margin="323,344,0,0" VerticalAlignment="Top" Width="148" RenderTransformOrigin="0.5,0.5" Height="35" Click="Btn_wypozycz_Copy_Click" />
+
+
+    </Grid>
+</Page>

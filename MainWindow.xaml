@@ -1,0 +1,54 @@
+﻿<Window x:Class="Biblioteka_system.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Biblioteka_system"
+        mc:Ignorable="d"
+        Title="Biblioteka" Height="450" Width="800">
+    <Grid>
+
+
+        <Frame x:Name="frm_1"  Height="397"  Width="794"   VerticalAlignment="Top" Margin="0,23,-0.4,0"    />
+
+        <Menu x:Name="menu" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="794" Margin="0,0,-0.4,0">
+
+            <MenuItem Name="Main_Page" Header="Główna strona" Click="Main_Page_Click" />
+
+            <MenuItem Name="Ustawienia" Header="Ustawienia" Height="23"    >
+                <MenuItem Name="_Wyloguj" Header="Wyloguj" Click="_Wyloguj_Click"  />
+                <MenuItem Name="Color" Header="Zmien kolor" />
+                <MenuItem Name="Wyjscie" Header="Wyjscie" Click="Wyjscie_Click" />
+            </MenuItem>
+
+            <MenuItem Name="Klient" Header="Klient"  Height="23" MouseDoubleClick="Druga_Click"  >
+                <MenuItem Name="Dodaj" Header="Dodaj klienta" Click="Dodaj_Click" />
+                <MenuItem Name="Edytuj" Header="Edytuj" Click="Edytuj_Click"/>
+
+            </MenuItem>
+
+            <MenuItem Name="ksiazka" Header="Ksiazka"  Height="23" MouseDoubleClick="Ksiazka_Click" >
+                <MenuItem Name="Dodaj_ksiazka" Header="Dodaj ksiażkę" Click="Dodaj_ksiazka_Click" />
+                <MenuItem Name="Edytuj_ksiazka" Header="Edytuj" Click="Edytuj_ksiazka_Click"/>
+                
+            </MenuItem>
+
+            <MenuItem Name="Autor" Header="Autor" Height="23" MouseDoubleClick="Autor_Click">
+                <MenuItem  Name="Dodaj_autora" Header="Dodaj autora" Click="Dodaj_autora_Click" />
+                <MenuItem Name="Edytuj_autora" Header="Edytuj autora" Click="Edytuj_autora_Click"/>
+
+            </MenuItem>
+            
+            <MenuItem  Name="wypozyczenia" Header="Wypozyczenia"   MouseDoubleClick="Lista_Wypozycz_Click">
+                <MenuItem Name="Wypozycz" Header="Wypożycz" Click="Wypozycz_Click"  />
+                <MenuItem Name="Lista_Wypozycz" Header="Lista wypożyczeń" Click="Lista_Wypozycz_Click" />
+            </MenuItem>
+
+        </Menu>
+
+
+
+
+
+    </Grid>
+</Window>
