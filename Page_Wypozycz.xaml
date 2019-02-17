@@ -39,9 +39,9 @@
         <TextBox x:Name="txt_szukaj_ksiazki" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="413,171,0,0" TextChanged="Txt_szukaj_ksiazki_TextChanged" />
         <Label Content="Wyszukaj ksiazke:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="413,141,0,0"/>
 
-        <Button x:Name="btn_zamów" Content="Złóż zamówienie" HorizontalAlignment="Left" Margin="658,181,0,0" VerticalAlignment="Top" Width="112" Height="33"   />
-        <Button x:Name="btn_Wypozycz_Film_Copy" Content="Wypożycz" HorizontalAlignment="Left" Margin="576,323,0,0" VerticalAlignment="Top" Width="125" Height="45"  />
-        <ListView x:Name="Listview_zamowienia" HorizontalAlignment="Left" Height="122" Margin="219,234,0,0" VerticalAlignment="Top" Width="295" >
+        <Button x:Name="btn_zamów" Content="Złóż zamówienie" HorizontalAlignment="Left" Margin="658,181,0,0" VerticalAlignment="Top" Width="112" Height="33" Click="Btn_zamów_Click"   />
+        <Button x:Name="btn_Wypozycz_Film_Copy" Content="Wypożycz" HorizontalAlignment="Left" Margin="576,323,0,0" VerticalAlignment="Top" Width="125" Height="45" Click="Btn_Wypozycz_Film_Copy_Click"  />
+        <ListView x:Name="Listview_zamowienia" HorizontalAlignment="Left" Height="122" Margin="219,236,0,0" VerticalAlignment="Top" Width="295" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Imie" DisplayMemberBinding="{Binding imie}" Width="auto" />
