@@ -41,3 +41,7 @@ D:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\ob
 D:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\obj\Debug\Page_edycja_usuwanie_autorow.baml
 D:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\obj\Debug\Okno_dodaj_wspolautora.g.cs
 D:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\obj\Debug\Okno_dodaj_wspolautora.baml
+D:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\obj\Debug\Szczegoly.g.cs
+D:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\obj\Debug\Szczegoly.baml
+D:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\obj\Debug\Color.g.cs
+D:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\obj\Debug\Color.baml

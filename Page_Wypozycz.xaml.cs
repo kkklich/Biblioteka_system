@@ -39,9 +39,9 @@ namespace Biblioteka_system
         string nazwa_tabeli_klient;
         DataSet ds;
         SqlDataAdapter sqladapter;
-        DataTable tabelaZam;
+        
             string tytul_ksiazki;
-        string id_ksiazki;
+        string id_ak;
         string id_klienta;
         DateTime dataoddania;
         DateTime datadzis;
@@ -49,7 +49,7 @@ namespace Biblioteka_system
         bool istnienieTEMP = false;
         DataTable TEMPtabela;
         DataTable KlienciTable;
-        int klikniecia_zamow = 0;
+        
 
 
         public Page_Wypozycz()
@@ -59,6 +59,9 @@ namespace Biblioteka_system
 
         public Page_Wypozycz(SqlConnection conn)
         {
+
+            
+
             InitializeComponent();
             this.conn = conn;
 
@@ -69,26 +72,31 @@ namespace Biblioteka_system
 
             wys_liste.ShowWypozyczenia(polecenie_klient, conn, nazwa_tabeli_klient, Listview_Klienci);
 
-            string polecenie_ksaizka = "select *, (imie+' '+nazwisko) as imieNazwisko from ksiazki k join autorzyKsiazki ak on ak.id_aksiazki = k.id join autor a on a.id_autor = ak.id_autor ";
+            string polecenie_ksaizka = "select *, (imie+' '+nazwisko) as imieNazwisko from ksiazki k join autorzyKsiazki ak on ak.id_aksiazki = k.idksiazki join autor a on a.id_autor = ak.id_autor ";
             nazwa_tabeli_ksiazki = "ksiazki";
 
             wys_liste.ShowWypozyczenia(polecenie_ksaizka, conn, nazwa_tabeli_ksiazki, Listview_Ksiazki);
 
-            
+     
+
+     
         }
 
+        //Wyszukiwanie klientów
         private void Txt_szukaj_klientow_TextChanged(object sender, TextChangedEventArgs e)
         {
             string dane = txt_szukaj_klientow.Text;
-            string polecenie_szukania_klienta = "select * from klienci where id like '%" + dane + "%' or imie like '%" + dane + "%' or nazwisko like '%" + dane + "%' or numer_telefonu like '%" + dane + "%' or (imie+' '+nazwisko) like '%" + dane + "%' ";
+            string polecenie_szukania_klienta = "select * from klienci where idklient like '%" + dane + "%' or imie like '%" + dane + "%' or nazwisko like '%" + dane + "%' or numer_telefonu like '%" + dane + "%' or (imie+' '+nazwisko) like '%" + dane + "%' ";
             wys_liste.ShowWypozyczenia(polecenie_szukania_klienta, conn, nazwa_tabeli_klient, Listview_Klienci);
         }
 
+
+        //Wyszukiwanie ksiazek
         private void Txt_szukaj_ksiazki_TextChanged(object sender, TextChangedEventArgs e)
         {
             string dane = txt_szukaj_ksiazki.Text;
 
-            string polecenie_szukania_ksiazki = "select *, (imie+' '+nazwisko) as imieNazwisko from ksiazki k join autorzyKsiazki ak on ak.id_aksiazki = k.id join autor a on a.id_autor = ak.id_autor where id like '%" + dane + "%' or tytul like '%" + dane + "%' or imie like '%" + dane + "%' or nazwisko like '" + dane + "' or(imie + ' ' + nazwisko) like '%" + dane + "%' ";
+            string polecenie_szukania_ksiazki = "select *, (imie+' '+nazwisko) as imieNazwisko from ksiazki k join autorzyKsiazki ak on ak.id_aksiazki = k.idksiazki join autor a on a.id_autor = ak.id_autor where idksiazki like '%" + dane + "%' or tytul like '%" + dane + "%' or imie like '%" + dane + "%' or nazwisko like '" + dane + "' or(imie + ' ' + nazwisko) like '%" + dane + "%' ";
             wys_liste.ShowWypozyczenia(polecenie_szukania_ksiazki, conn, nazwa_tabeli_ksiazki, Listview_Ksiazki);
         }
 
@@ -108,31 +116,62 @@ namespace Biblioteka_system
 
 
                     KlienciTable = new DataTable();
-                    string polecenie_klienci = "select * from klienci";
+                    string dane = txt_szukaj_klientow.Text;
+                    string polecenie_klienci;
+                    if (dane=="")
+                    {
+                        polecenie_klienci = "select * from klienci";
+                    }
+                    else
+                    {
+                        polecenie_klienci= "select * from klienci where idklient like '%" + dane + "%' or imie like '%" + dane + "%' or nazwisko like '%" + dane + "%' or numer_telefonu like '%" + dane + "%' or (imie+' '+nazwisko) like '%" + dane + "%' ";
+
+                    }
+
+
                     sqladapter = new SqlDataAdapter(polecenie_klienci, conn);
                     sqladapter.Fill(KlienciTable);
 
 
                     id_klienta = KlienciTable.Rows[index_klienta][0].ToString();
 
-                    string imie_klienta = KlienciTable.Rows[index_klienta][1].ToString();
+                    DataRowView row = Listview_Klienci.SelectedItem as DataRowView;
+                   // string imie_klienta = Convert.ToString(row["imie"]);
+
+                    //DataRowView row = Listview_Klienci.SelectedItem as DataRowView;
+                    //string nazwisko_klienta = Convert.ToString(row["nazwisko"]);
+
+                    //= KlienciTable.Rows[index_klienta][1].ToString();
+
+                    string imie_klienta= KlienciTable.Rows[index_klienta][1].ToString();
                     string nazwisko_klienta = KlienciTable.Rows[index_klienta][2].ToString();
 
 
                     KlienciTable = new DataTable();
-                    string polecenie_ksiaki = "select *, (imie+' '+nazwisko) as imieNazwisko from ksiazki k join autorzyKsiazki ak on ak.id_aksiazki = k.id join autor a on a.id_autor = ak.id_autor ";
-                    sqladapter = new SqlDataAdapter(polecenie_ksiaki, conn);
+                    string polecenie_ksiaki;
+                    dane = txt_szukaj_ksiazki.Text;
+                    if (dane == "")
+                    {
+                        polecenie_ksiaki = "select *, (imie+' '+nazwisko) as imieNazwisko from ksiazki k join autorzyKsiazki ak on ak.id_aksiazki = k.idksiazki join autor a on a.id_autor = ak.id_autor ";
+                    }else
+                    {
+                        polecenie_ksiaki = "select *, (imie+' '+nazwisko) as imieNazwisko from ksiazki k join autorzyKsiazki ak on ak.id_aksiazki = k.idksiazki join autor a on a.id_autor = ak.id_autor where idksiazki like '%" + dane + "%' or tytul like '%" + dane + "%' or imie like '%" + dane + "%' or nazwisko like '" + dane + "' or(imie + ' ' + nazwisko) like '%" + dane + "%' ";
+                        
+                    }
+
+
+                        sqladapter = new SqlDataAdapter(polecenie_ksiaki, conn);
                     sqladapter.Fill(KlienciTable);
-                    id_ksiazki = KlienciTable.Rows[index_ksiazki]["id"].ToString();
+                    id_ak = KlienciTable.Rows[index_ksiazki]["id_ak"].ToString();
 
                     tytul_ksiazki = KlienciTable.Rows[index_ksiazki][1].ToString();
 
                     Listview_zamowienia.Items.Add(new wypozyczenia() { imie = imie_klienta, nazwisko = nazwisko_klienta, ksiazka = tytul_ksiazki });
+                    
 
-
-
-
+                    
                     TworzenieTEMP();
+                    
                 }
             }
             catch(SqlException )
@@ -158,20 +197,20 @@ namespace Biblioteka_system
                 MessageBox.Show(f.Message);
             }
 
-
+            lbl_ile.Content = Listview_zamowienia.Items.Count;
         }
 
 
 
 
-
+        //Funkcja tworzaca tabele TEMP
         private void TworzenieTEMP()
         {
 
             if (istnienieTEMP == false)
             {
                 TEMPtabela = new DataTable();
-                string tworzenieTEMP = "create table TEMP( id_temp int primary key identity not null, id_klienta int foreign key references klienci(id), id_ksiazki int foreign key references ksiazki(id), data_wypozyczenia date not null, data_zwrotu date not null )";
+                string tworzenieTEMP = "create table TEMP(id_temp int primary key identity not null,id_klienta int foreign key references klienci(idklient),id_ak int foreign key references autorzyksiazki(id_ak),data_wypozyczenia date not null,data_zwrotu date not null)";
                 sqladapter = new SqlDataAdapter(tworzenieTEMP, conn);
                 sqladapter.Fill(TEMPtabela);
 
@@ -187,7 +226,7 @@ namespace Biblioteka_system
             DataRow dr = TEMPtabela.NewRow();
 
             dr["id_klienta"] = id_klienta;
-            dr["id_ksiazki"] = id_ksiazki;
+            dr["id_ak"] = id_ak;
             dr["data_wypozyczenia"] = datadzis;
             dr["data_zwrotu"] = dataoddania;
 
@@ -198,7 +237,7 @@ namespace Biblioteka_system
 
         }
 
-
+        //Dodawanie wypozyczen do tabeli wypozyczenia czyli do bazy danych
         private void Btn_Wypozycz_Film_Copy_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -208,7 +247,7 @@ namespace Biblioteka_system
                 {
 
                     int ilosc = TEMPtabela.Rows.Count;
-                    MessageBox.Show(ilosc.ToString());
+                    //MessageBox.Show(ilosc.ToString());
                     string dataobecna, datazwrotu;
 
                     for (int i = 0; i < ilosc; i++)
@@ -217,13 +256,14 @@ namespace Biblioteka_system
 
 
                         id_klienta = TEMPtabela.Rows[i]["id_klienta"].ToString();
-                        id_ksiazki = TEMPtabela.Rows[i]["id_ksiazki"].ToString();
+                        id_ak = TEMPtabela.Rows[i]["id_ak"].ToString();
                         dataobecna = TEMPtabela.Rows[i]["data_wypozyczenia"].ToString();
                         datazwrotu = TEMPtabela.Rows[i]["data_zwrotu"].ToString();
 
 
                         datadzis = DateTime.Parse(dataobecna);
                         dataoddania = DateTime.Parse(datazwrotu);
+
 
                         ds = new DataSet();
 
@@ -233,15 +273,11 @@ namespace Biblioteka_system
                         DataRow dr = ds.Tables["wypozyczenia"].NewRow();
 
                         dr["id_klienta"] = id_klienta;
-                        dr["id_ksiazki"] = id_ksiazki;
+                        dr["id_ak"] = id_ak;
                         dr["data_wypozyczenia"] = datadzis;
                         dr["data_zwrotu"] = dataoddania;
 
                         ds.Tables["wypozyczenia"].Rows.Add(dr);
-
-
-
-
                         SqlCommandBuilder sqlbuilder = new SqlCommandBuilder(sqladapter);
                         sqladapter.Update(ds, "wypozyczenia");
                     }
@@ -253,6 +289,9 @@ namespace Biblioteka_system
                     sqladapter.Fill(TEMPtabela);
 
                     istnienieTEMP = false;
+
+                    //Listview_zamowienia.Drop;
+                    Listview_zamowienia.Items.Clear();
                 }
                 else
                 {
@@ -267,6 +306,25 @@ namespace Biblioteka_system
 
             }
             
+        }
+
+
+        //W label bedzie wyswietla imie aktualnego klienta
+        private void Listview_Klienci_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+                int indexkl=Listview_Klienci.SelectedIndex;
+
+
+
+            if (indexkl > -1)
+            {
+
+                DataRowView row = Listview_Klienci.SelectedItem as DataRowView;
+                String q = Convert.ToString(row["imie"]);
+
+                lblklient.Content = q;
+            }
         }
     }
 }

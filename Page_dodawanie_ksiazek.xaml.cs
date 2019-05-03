@@ -27,7 +27,8 @@ namespace Biblioteka_system
         SqlConnection conn;
         SqlDataAdapter sqlada;
         DataSet ds;
-        
+        Frame frame1;
+
         string id_ksiazki;
 
         public Page_dodawanie_ksiazek()
@@ -36,10 +37,11 @@ namespace Biblioteka_system
         }
 
 
-        public Page_dodawanie_ksiazek(SqlConnection conn)
+        public Page_dodawanie_ksiazek(SqlConnection conn,Frame frame1)
         {
             InitializeComponent();
             this.conn = conn;
+            this.frame1 = frame1;
 
             
             string polecenie_autor = "select *, (imie+' '+nazwisko) as imieNazwisko from autor";
@@ -60,7 +62,7 @@ namespace Biblioteka_system
 
         }
 
-
+        //Dodawanie ksiazki
         private void Btn_dodaj_ksiazke_Click(object sender, RoutedEventArgs e)
         {
 
@@ -98,7 +100,10 @@ namespace Biblioteka_system
 
                 DataSeting(polecenie_autor, nazwa_autor);
 
-                string autor = cmbAutor.SelectedItem.ToString();
+                if (tytul != " " && cmbAutor.SelectedIndex > -1)
+                {
+
+                    string autor = cmbAutor.SelectedItem.ToString();
                 string id_autora = "";
                 int ile_autorow = ds.Tables["autor"].Rows.Count;
 
@@ -110,24 +115,24 @@ namespace Biblioteka_system
                     }
                 }
 
+               
+                    //Dodawnie idi-ków do tabeli autorzyKsiazki
+                    string polcenie2 = "select * from autorzyKsiazki";
+                    string nazwa_autorzyksiazki = "autorzyKsiazki";
 
-                //Dodawnie idi-ków do tabeli autorzyKsiazki
-                string polcenie2 = "select * from autorzyKsiazki";
-                string nazwa_autorzyksiazki= "autorzyKsiazki";
+                    DataSeting(polcenie2, nazwa_autorzyksiazki);
 
-                DataSeting(polcenie2, nazwa_autorzyksiazki);
+                    DataRow dr2 = ds.Tables["autorzyKsiazki"].NewRow();
 
-                DataRow dr2 = ds.Tables["autorzyKsiazki"].NewRow();
+                    dr2["id_aksiazki"] = id_ksiazki;
+                    dr2["id_autor"] = id_autora;
 
-                dr2["id_aksiazki"] = id_ksiazki;
-                dr2["id_autor"] = id_autora;
+                    ds.Tables["autorzyKsiazki"].Rows.Add(dr2);
 
-                ds.Tables["autorzyKsiazki"].Rows.Add(dr2);
-
-                sqlbuild = new SqlCommandBuilder(sqlada);
-                sqlada.Update(ds, "autorzyKsiazki");
-                MessageBox.Show("Dodano ksiażkę "+tytul+"");
-
+                    sqlbuild = new SqlCommandBuilder(sqlada);
+                    sqlada.Update(ds, "autorzyKsiazki");
+                    MessageBox.Show("Dodano ksiażkę " + tytul + "");
+                }
             }
             catch (FormatException )
             {
@@ -139,6 +144,7 @@ namespace Biblioteka_system
             }
         }
 
+        //Funkcja dataseting
         private void DataSeting(string polecenie, string nazwa)
         {
             string polcenie2 = polecenie;
@@ -152,19 +158,11 @@ namespace Biblioteka_system
         }
 
 
-        private void RadioButton_brakautora_Checked(object sender, RoutedEventArgs e)
+         //Powrót   
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(cmbAutor.SelectedIndex.ToString());
-        }
+            frame1.Content = new Page2(frame1, conn);
 
-        private void Btn_kolejny_autor_Click(object sender, RoutedEventArgs e)
-        {
-            if (txt_tytul.Text != null & cmbAutor.SelectedIndex >-1 )  
-            {
-                string tytul = txt_tytul.Text;
-                Okno_dodaj_wspolautora okno = new Okno_dodaj_wspolautora(conn, tytul,id_ksiazki);
-                okno.Show();
-            }
         }
     }
 }

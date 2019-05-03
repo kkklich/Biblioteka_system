@@ -45,15 +45,17 @@ namespace Biblioteka_system
             string polecenie = "select * from klienci";
 
             wys_liste.ShowWypozyczenia(polecenie, conn, nazwa_tabeli, listView);
-           
+
+            lbl_ilosc.Content = listView.Items.Count;
         }
 
-
+            //Dodawanie klientow
         private void Btn_dodaj_klienta_Click(object sender, RoutedEventArgs e)
         {
-            frame1.Content = new Page_dodaj_klienta(conn);
+            frame1.Content = new Page_dodaj_klienta(conn,frame1);
         }
 
+        //Edycja klientow
         private void Btn_edytuj_klienta_Click(object sender, RoutedEventArgs e)
         {
             int id_selected = listView.SelectedIndex;
@@ -67,12 +69,14 @@ namespace Biblioteka_system
             }
         }
 
+        //Wyszukiwanie klientow
         private void Txt_szukaj_TextChanged(object sender, TextChangedEventArgs e)
         {
             string dane = txt_szukaj.Text;
 
-            string polecenie_szukania_klienta = "select * from klienci where id like '%"+dane+"%' or imie like '%"+dane+"%' or nazwisko like '%"+dane+"%' or numer_telefonu like '%"+dane + "%' or (imie+' '+nazwisko) like '%"+dane+"%' ";
+            string polecenie_szukania_klienta = "select * from klienci where idklient like '%" + dane+"%' or imie like '%"+dane+"%' or nazwisko like '%"+dane+"%' or numer_telefonu like '%"+dane + "%' or (imie+' '+nazwisko) like '%"+dane+"%' ";
             wys_liste.ShowWypozyczenia(polecenie_szukania_klienta, conn, nazwa_tabeli, listView);
+            lbl_ilosc.Content = listView.Items.Count;
         }
     }
 }

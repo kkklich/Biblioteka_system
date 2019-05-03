@@ -29,18 +29,19 @@ namespace Biblioteka_system
         DataSet ds;
         SqlDataAdapter sqlada;
         SqlCommandBuilder sqlbuilder;
+        Frame frame1;
 
         public Page_edycja_usuwanie_autorow()
         {
             InitializeComponent();
         }
 
-        public Page_edycja_usuwanie_autorow(SqlConnection conn,int id_autora)
+        public Page_edycja_usuwanie_autorow(SqlConnection conn,int id_autora,Frame frame1)
         {
             InitializeComponent();
             this.conn = conn;
             this.id_autora = id_autora;
-
+            this.frame1 = frame1;
 
             ds = new DataSet();
              string polecenie2 = "select * from autor";
@@ -52,6 +53,7 @@ namespace Biblioteka_system
 
         }
 
+        //Edytowanie autora
         private void Btn_edytuj_autora_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -74,6 +76,7 @@ namespace Biblioteka_system
 
         }
 
+        //Usuwanie autora
         private void Btn_usun_autora_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -92,6 +95,12 @@ namespace Biblioteka_system
             {
                 MessageBox.Show("Nie można usunąć autora, prawdopodobnie jej/jego książki są w bazie danych ");
             }
+        }
+
+        //Powrót
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            frame1.Content = new Autorzy_Page(frame1, conn);
         }
     }
 }

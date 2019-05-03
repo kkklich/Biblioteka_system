@@ -8,7 +8,7 @@
         d:DesignHeight="397" d:DesignWidth="794"
       Title="Autorzy_Page">
 
-    <Grid Background="#FFF0EBEB">
+    <Grid >
         <Label x:Name="label" Content="Autorzy" HorizontalAlignment="Left" Height="67" Margin="344,10,0,0" VerticalAlignment="Top" Width="134" FontSize="36" Foreground="#FF5A8B50" FontFamily="Sitka Heading"/>
         <Label x:Name="label2" Content="Wyszukaj autorów:" HorizontalAlignment="Left" Height="29" Margin="10,288,0,0" VerticalAlignment="Top" Width="112"/>
         <TextBox x:Name="txt_szukaj_autorow" HorizontalAlignment="Left" Height="30" Margin="10,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" TextChanged="Txt_szukaj_autorow_TextChanged"/>
@@ -18,7 +18,7 @@
                     <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id_autor}" Width="auto"  />
                     <GridViewColumn Header="Imie" DisplayMemberBinding="{Binding imie}" Width="auto"   />
                     <GridViewColumn Header="Nazwisko"  DisplayMemberBinding="{Binding nazwisko}" Width="auto"/>
-                    
+
                 </GridView>
             </ListView.View>
         </ListView>
@@ -27,8 +27,7 @@
         <Button x:Name="btn_dodaj_autora" Content="Dodaj autora" HorizontalAlignment="Left" Height="35" Margin="587,93,0,0" VerticalAlignment="Top" Width="173" Click="Btn_dodaj_autora_Click"/>
         <Button x:Name="btn_edytuj_autora" Content="Edytuj autora" HorizontalAlignment="Left" Height="35" Margin="587,145,0,0" VerticalAlignment="Top" Width="173" Click="Btn_edytuj_autora_Click"/>
         <Button x:Name="btn_usun_autora" Content="Usuń autora" HorizontalAlignment="Left" Height="35" Margin="587,200,0,0" VerticalAlignment="Top" Width="173"  Click="Btn_edytuj_autora_Click" />
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Height="35" Margin="304,317,0,0" VerticalAlignment="Top" Width="174" />
-        <Label x:Name="label1" Content="Wybierz autora" HorizontalAlignment="Left" Height="24" Margin="304,288,0,0" VerticalAlignment="Top" Width="174"/>
+        <Label x:Name="lbl_ilosc" HorizontalAlignment="Left" Height="29" Margin="484,288,0,0" VerticalAlignment="Top" Width="53"/>
     </Grid>
 
 </Page>

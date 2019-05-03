@@ -8,11 +8,11 @@
       d:DesignHeight="397" d:DesignWidth="794"
       Title="Page_Wypozycz">
 
-    <Grid Background="#FFF0EBEB">
+    <Grid >
         <ListView x:Name="Listview_Ksiazki" HorizontalAlignment="Left" Height="82" Margin="413,54,0,0" VerticalAlignment="Top" Width="306"  >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Id " DisplayMemberBinding="{Binding id}" Width="auto" />
+                    <GridViewColumn Header="Id " DisplayMemberBinding="{Binding idksiazki}" Width="auto" />
                     <GridViewColumn Header="Tytul " DisplayMemberBinding="{Binding tytul}" Width="auto" />
                     <GridViewColumn Header="Autor"  DisplayMemberBinding="{Binding imieNazwisko }" Width="auto"/>
                 </GridView>
@@ -20,11 +20,11 @@
         </ListView>
 
 
-        <Label Content="Klienci" HorizontalAlignment="Left" Margin="49,23,0,0" VerticalAlignment="Top" Height="26" Width="93"/>
-        <ListView x:Name="Listview_Klienci" HorizontalAlignment="Left" Height="82" Margin="22,54,0,0" VerticalAlignment="Top" Width="282" >
+        <Label Name="lblwyp" Content="Klienci" HorizontalAlignment="Left" Margin="49,23,0,0" VerticalAlignment="Top" Height="26" Width="93"/>
+        <ListView x:Name="Listview_Klienci" HorizontalAlignment="Left" Height="64" Margin="22,54,0,0" VerticalAlignment="Top" Width="282" SelectionChanged="Listview_Klienci_SelectionChanged" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="auto" />
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idklient}" Width="auto" />
                     <GridViewColumn Header="Imie" DisplayMemberBinding="{Binding imie}" Width="auto" />
                     <GridViewColumn Header="Nazwisko"  DisplayMemberBinding="{Binding nazwisko}" Width="auto"/>
                     <GridViewColumn Header="Nr. tel." DisplayMemberBinding="{Binding numer_telefonu}" Width="auto"/>
@@ -32,8 +32,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <TextBox x:Name="txt_szukaj_klientow" HorizontalAlignment="Left" Height="23" Margin="22,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="Txt_szukaj_klientow_TextChanged" />
-        <Label Content="Wyszukaj klienta:" HorizontalAlignment="Left" Margin="22,141,0,0" VerticalAlignment="Top" />
+        <TextBox x:Name="txt_szukaj_klientow" HorizontalAlignment="Left" Height="23" Margin="22,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="Txt_szukaj_klientow_TextChanged" />
+        <Label Content="Wyszukaj klienta:" HorizontalAlignment="Left" Margin="22,123,0,0" VerticalAlignment="Top" />
 
         <Label Content="Książki" HorizontalAlignment="Left" Margin="408,23,0,0" VerticalAlignment="Top" Height="26" Width="93"/>
         <TextBox x:Name="txt_szukaj_ksiazki" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="413,171,0,0" TextChanged="Txt_szukaj_ksiazki_TextChanged" />
@@ -51,6 +51,9 @@
             </ListView.View>
         </ListView>
         <Label Content="Zamówienia" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,203,0,0" Width="152"/>
+        <Label x:Name="lblklient"  HorizontalAlignment="Left" Height="26" Margin="63,191,0,0" VerticalAlignment="Top" Width="111" Background="#FF6DE54F"/>
+        <Label x:Name="label" Content="Imie:" HorizontalAlignment="Left" Height="38" Margin="22,191,0,0" VerticalAlignment="Top" Width="36"/>
+        <Label x:Name="lbl_ile"  HorizontalAlignment="Left" Height="28" Margin="461,203,0,0" VerticalAlignment="Top" Width="40"/>
 
 
     </Grid>

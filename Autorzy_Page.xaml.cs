@@ -46,19 +46,22 @@ namespace Biblioteka_system
             wys_liste = new Klasa_glowna();
             wys_liste.ShowWypozyczenia(polecenie, conn, nazwa_tabeli, listView_autorzy);
 
+            lbl_ilosc.Content = listView_autorzy.Items.Count;
         }
 
+        //Przycisk dodawanie autora
         private void Btn_dodaj_autora_Click(object sender, RoutedEventArgs e)
         {
-            frame3.Content = new Page_dodawanie_autorow(conn);
+            frame3.Content = new Page_dodawanie_autorow(conn,frame3);
         }
 
+        //Przycisk edycji autora
         private void Btn_edytuj_autora_Click(object sender, RoutedEventArgs e)
         {
             int id_autora = listView_autorzy.SelectedIndex;
             if (id_autora > -1)
             {
-                frame3.Content = new Page_edycja_usuwanie_autorow(conn, id_autora);
+                frame3.Content = new Page_edycja_usuwanie_autorow(conn, id_autora,frame3);
             }
             else
             {
@@ -66,12 +69,14 @@ namespace Biblioteka_system
             }
         }
 
+        //Wyszukiwanie autorów
         private void Txt_szukaj_autorow_TextChanged(object sender, TextChangedEventArgs e)
         {
             string dane = txt_szukaj_autorow.Text;
             string polecenie_szukania_autora = " select * from autor where id_autor like'%"+dane+"%' or imie like '%"+dane+"%' or nazwisko like '%"+dane+"%' or(imie + ' ' + nazwisko) like '%"+dane+"%' or(nazwisko + ' ' + imie) like '%"+dane+"%'";
 
             wys_liste.ShowWypozyczenia(polecenie_szukania_autora, conn, nazwa_tabeli, listView_autorzy);
+            lbl_ilosc.Content = listView_autorzy.Items.Count;
         }
 
         

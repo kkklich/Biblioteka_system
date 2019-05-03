@@ -24,15 +24,18 @@ namespace Biblioteka_system
     public partial class Page_dodawanie_autorow : Page
     {
         SqlConnection conn;
+        Frame frame1;
 
         public Page_dodawanie_autorow()
         {
             InitializeComponent();
         }
-        public Page_dodawanie_autorow(SqlConnection conn)
+        public Page_dodawanie_autorow(SqlConnection conn,Frame frame)
         {
             InitializeComponent();
             this.conn = conn;
+            frame1 = frame;
+
 
         }
 
@@ -44,27 +47,30 @@ namespace Biblioteka_system
                 string nazwisko = txt_nazwisko.Text;
                 string uwaga = "Czy chcesz dodać autora " + imie + " " + nazwisko + " ?";
 
-                if (MessageBox.Show(uwaga, "Uwaga", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (imie != "" && nazwisko != "")
                 {
-                    DataSet ds = new DataSet();
-                    string polcenie = "select * from autor";
-                    SqlDataAdapter sqlada = new SqlDataAdapter(polcenie, conn);
-                    sqlada.Fill(ds, "autor");
-                    DataRow dr = ds.Tables["autor"].NewRow();
+                    if (MessageBox.Show(uwaga, "Uwaga", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        DataSet ds = new DataSet();
+                        string polcenie = "select * from autor";
+                        SqlDataAdapter sqlada = new SqlDataAdapter(polcenie, conn);
+                        sqlada.Fill(ds, "autor");
+                        DataRow dr = ds.Tables["autor"].NewRow();
 
 
-                    dr["imie"] = txt_imie.Text;
-                    dr["nazwisko"] = txt_nazwisko.Text;
+                        dr["imie"] = txt_imie.Text;
+                        dr["nazwisko"] = txt_nazwisko.Text;
 
 
-                    ds.Tables["autor"].Rows.Add(dr);
+                        ds.Tables["autor"].Rows.Add(dr);
 
-                    SqlCommandBuilder sqlbuild = new SqlCommandBuilder(sqlada);
-                    sqlada.Update(ds, "autor");
+                        SqlCommandBuilder sqlbuild = new SqlCommandBuilder(sqlada);
+                        sqlada.Update(ds, "autor");
 
-                    MessageBox.Show("Dodano autora");
+                        frame1.Content = new Autorzy_Page(frame1, conn);
 
-                    
+
+                    }
                 }
 
             }
@@ -72,6 +78,13 @@ namespace Biblioteka_system
             {
                 MessageBox.Show(f.Message);
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+            frame1.Content = new Autorzy_Page(frame1, conn);
+
         }
     }
 }

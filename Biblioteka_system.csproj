@@ -58,6 +58,9 @@
     <Compile Include="Autorzy_Page.xaml.cs">
       <DependentUpon>Autorzy_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Color.xaml.cs">
+      <DependentUpon>Color.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Okno_dodaj_wspolautora.xaml.cs">
       <DependentUpon>Okno_dodaj_wspolautora.xaml</DependentUpon>
     </Compile>
@@ -89,10 +92,17 @@
       <DependentUpon>Page_Wypozycz.xaml</DependentUpon>
     </Compile>
     <Compile Include="Show_Lista.cs" />
+    <Compile Include="Szczegoly.xaml.cs">
+      <DependentUpon>Szczegoly.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Wyloguj.xaml.cs">
       <DependentUpon>Wyloguj.xaml</DependentUpon>
     </Compile>
     <Page Include="Autorzy_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Color.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -153,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Page_Wypozycz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Szczegoly.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -37,6 +37,8 @@ namespace Biblioteka_system
                 conn = new SqlConnection(connString);
                 conn.Open();
 
+                
+                //frm_1.Content = new Wyloguj(menu1,conn,frm_1);
                 frm_1.Content = new Main_Page(frm_1,conn);
 
             }
@@ -73,7 +75,7 @@ namespace Biblioteka_system
         //Wylogowywanie się
         private void _Wyloguj_Click(object sender, RoutedEventArgs e)
         {
-            frm_1.Content = new Wyloguj();
+            frm_1.Content = new Wyloguj(menu1, conn, frm_1);
            // menu.IsEnabled = false;
         }
 
@@ -95,7 +97,7 @@ namespace Biblioteka_system
         //Otwieranie Page dodawanie klienta
         private void Dodaj_Click(object sender, RoutedEventArgs e)
         {
-            frm_1.Content = new Page_dodaj_klienta(conn);
+            frm_1.Content = new Page_dodaj_klienta(conn,frm_1);
         }
 
 
@@ -117,7 +119,7 @@ namespace Biblioteka_system
         //Otwieranie Page dodawanie ksizaki
         private void Dodaj_ksiazka_Click(object sender, RoutedEventArgs e)
         {
-            frm_1.Content = new Page_dodawanie_ksiazek(conn);
+            frm_1.Content = new Page_dodawanie_ksiazek(conn,frm_1);
         }
 
         
@@ -126,18 +128,18 @@ namespace Biblioteka_system
         private void Edytuj_ksiazka_Click(object sender, RoutedEventArgs e)
         {
             int id_ksiazki = 0;
-            frm_1.Content = new Page_edycja_usun_ksiazke(conn, id_ksiazki);
+            frm_1.Content = new Page_edycja_usun_ksiazke(conn, id_ksiazki,frm_1);
         }
 
         private void Dodaj_autora_Click(object sender, RoutedEventArgs e)
         {
-            frm_1.Content = new Page_dodawanie_autorow(conn);
+            frm_1.Content = new Page_dodawanie_autorow(conn,frm_1);
         }
 
         private void Edytuj_autora_Click(object sender, RoutedEventArgs e)
         {
             int id_autora = 0;
-            frm_1.Content = new Page_edycja_usuwanie_autorow(conn,id_autora);
+            frm_1.Content = new Page_edycja_usuwanie_autorow(conn,id_autora,frm_1);
         }
 
         private void Autor_Click(object sender, RoutedEventArgs e)
@@ -145,23 +147,17 @@ namespace Biblioteka_system
             frm_1.Content = new Autorzy_Page(frm_1, conn);
         }
 
+        private void Color_Click(object sender, RoutedEventArgs e)
+        {
 
-        //public void ShowWypozyczenia(string polecenie,SqlConnection conn1,string nazwa_tabeli,ListView listavieww)
-        //{
-        //    string polecenieDS = polecenie;
-        //    string nazwa_Tab = nazwa_tabeli;
-        //    SqlConnection conn = conn1;
-        //    ListView listaWypozyczen = listavieww;
-
-        //    SqlDataAdapter sqladapaterklient = new SqlDataAdapter(polecenieDS, conn);
-        //    DataTable tabela = new DataTable(nazwa_Tab);
-        //    sqladapaterklient.Fill(tabela);
-        //    listaWypozyczen.ItemsSource = tabela.DefaultView;
-        //    sqladapaterklient.Update(tabela);
-        //}
+            Color kolorek = new Color(frm_1);
+            kolorek.Show();
 
 
+        }
 
+
+        
 
 
     }

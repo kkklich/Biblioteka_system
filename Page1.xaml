@@ -8,17 +8,19 @@
       d:DesignHeight="397" d:DesignWidth="794"
       Title="Page1">
 
-    <Grid Background="#FFF0EBEB">
+    <Grid >
         <Label x:Name="label" Content="Klienci" HorizontalAlignment="Left" Height="67" Margin="344,10,0,0" VerticalAlignment="Top" Width="120" FontSize="36" Foreground="#FF5A8B50" FontFamily="Sitka Heading"/>
         <Label x:Name="label2" Content="Wyszukaj klienta:" HorizontalAlignment="Left" Height="29" Margin="10,288,0,0" VerticalAlignment="Top" Width="112"/>
         <TextBox x:Name="txt_szukaj" HorizontalAlignment="Left" Height="30" Margin="10,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" TextChanged="Txt_szukaj_TextChanged"/>
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="206" Margin="10,77,0,0" VerticalAlignment="Top" Width="527">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="auto" />
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding idklient}" Width="auto" />
                     <GridViewColumn Header="Imie" DisplayMemberBinding="{Binding imie}" Width="auto" />
                     <GridViewColumn Header="Nazwisko"  DisplayMemberBinding="{Binding nazwisko}" Width="auto"/>
                     <GridViewColumn Header="Numer telefonu"  DisplayMemberBinding="{Binding numer_telefonu}" Width="auto"/>
+                    <GridViewColumn Header="Dług" DisplayMemberBinding="{Binding dlug}" Width="auto"/>
+                    <GridViewColumn Header="Uwagi" DisplayMemberBinding="{Binding uwagi}" Width="auto"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -27,5 +29,6 @@
         <Button x:Name="btn_dodaj_klienta" Content="Dodaj klienta" HorizontalAlignment="Left" Height="35" Margin="587,93,0,0" VerticalAlignment="Top" Width="173" Click="Btn_dodaj_klienta_Click"/>
         <Button x:Name="btn_edytuj_klienta" Content="Edytuj klienta " HorizontalAlignment="Left" Height="35" Margin="587,145,0,0" VerticalAlignment="Top" Width="173" Click="Btn_edytuj_klienta_Click"/>
         <Button x:Name="btn_usun_klienta" Content="Usuń klienta " HorizontalAlignment="Left" Height="35" Margin="587,200,0,0" VerticalAlignment="Top" Width="173"  Click="Btn_edytuj_klienta_Click"  />
+        <Label x:Name="lbl_ilosc"  HorizontalAlignment="Left" Height="29" Margin="487,288,0,0" VerticalAlignment="Top" Width="50"/>
     </Grid>
 </Page>

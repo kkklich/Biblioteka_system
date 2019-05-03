@@ -9,14 +9,16 @@
       Title="Page_edycja_usun_ksiazke">
 
 
-    <Grid  Background="#FFF0EBEB" >
+    <Grid   >
         <Label x:Name="label" Content="Edytowanie książek" HorizontalAlignment="Left" Height="67" Margin="236,10,0,0" VerticalAlignment="Top" Width="331" FontSize="36" Foreground="#FF5A8B50" FontFamily="Sitka Heading"/>
         <Label x:Name="label1" Content="Tytuł" HorizontalAlignment="Left" Height="40" Margin="28,99,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="label1_Copy" Content="Autor" HorizontalAlignment="Left" Height="40" Margin="28,144,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="txt_tytul" HorizontalAlignment="Left" Height="26" Margin="135,103,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110"/>
-        <TextBox x:Name="txt_autor" HorizontalAlignment="Left" Height="26" Margin="135,144,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110"/>
-        <Button x:Name="btn_edytuj_ksiazke" Content="Edytuj książkę" HorizontalAlignment="Left" Height="42" Margin="135,287,0,0" VerticalAlignment="Top" Width="110" Click="Btn_edytuj_ksiazke_Click" />
-        <Button x:Name="btn_usun_ksiazke" Content="Usuń książkę" HorizontalAlignment="Left" Height="42" Margin="298,287,0,0" VerticalAlignment="Top" Width="110" />
+        <TextBox x:Name="txt_tytul" HorizontalAlignment="Left" Height="26" Margin="135,103,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="130"/>
+        <ComboBox x:Name="cmb_Autor" HorizontalAlignment="Left" Margin="135,144,0,0" VerticalAlignment="Top" Width="130" Height="26"/>
+        <Button x:Name="btn_usun_autora" Content="Usuń współautora" HorizontalAlignment="Left" Height="42" Margin="135,287,0,0" VerticalAlignment="Top" Width="110" Click="Btn_usun_autora_Click"  />
+        <Button x:Name="btn_usun_ksiazke" Content="Usuń książkę" HorizontalAlignment="Left" Height="42" Margin="298,287,0,0" VerticalAlignment="Top" Width="110" Click="Btn_usun_ksiazke_Click" />
+        <Button x:Name="button" Content="Back" HorizontalAlignment="Left" Height="33" Margin="28,22,0,0" VerticalAlignment="Top" Width="55" Click="Button_Click"/>
+        
 
     </Grid>
 </Page>

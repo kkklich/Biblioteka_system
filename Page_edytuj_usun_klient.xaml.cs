@@ -27,6 +27,7 @@ namespace Biblioteka_system
         DataSet ds;
         SqlDataAdapter sqlada;
         Frame frame1;
+        int iloscslow = 0;
 
         public Page_edytuj_usun_klient()
         {
@@ -50,9 +51,11 @@ namespace Biblioteka_system
             txt_imie.Text = ds.Tables["klienci"].Rows[id_klienta][1].ToString();
             txt_nazwisko.Text = ds.Tables["klienci"].Rows[id_klienta][2].ToString();
             txt_nr_tel.Text = ds.Tables["klienci"].Rows[id_klienta][3].ToString();
-            
+            txt_uwagi.Text = ds.Tables["klienci"].Rows[id_klienta][5].ToString();
         }
 
+
+        //Edytowanie klienta
         private void Btn_edytuj_klienta_Click(object sender, RoutedEventArgs e)
         {
 
@@ -63,6 +66,7 @@ namespace Biblioteka_system
                     ds.Tables["klienci"].Rows[id_klienta][1] = txt_imie.Text;
                     ds.Tables["klienci"].Rows[id_klienta][2] = txt_nazwisko.Text;
                     ds.Tables["klienci"].Rows[id_klienta][3] = txt_nr_tel.Text;
+                    ds.Tables["klienci"].Rows[id_klienta][5] = txt_uwagi.Text;
 
                     SqlCommandBuilder sqlbuilder = new SqlCommandBuilder(sqlada);
                     sqlada.Update(ds, "klienci");
@@ -85,6 +89,7 @@ namespace Biblioteka_system
             }
         }
 
+        //Usuwanie klienta
         private void Btn_usun_klienta_Click(object sender, RoutedEventArgs e)
         {
             if(id_klienta>-1)
@@ -108,10 +113,39 @@ namespace Biblioteka_system
                 }
                 catch(SqlException)
                 {
-                    MessageBox.Show("Nie można usunąć klienta, prawdopodobnie ma wypozyczoną książkę");
+                    MessageBox.Show("Nie można usunąć klienta, prawdopodobnie ma wypożyczoną książkę");
                 }
             }
         }
+
+        //Powrót
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            frame1.Content = new Page1(frame1, conn);
+        }
+
+        //Sprawdzanie ile jest znaków w tekscie Uwagi
+        private void Txt_uwagi_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+            
+                String slowo = txt_uwagi.Text;
+                iloscslow = slowo.Length;
+            
+            if (iloscslow > 100)
+            {
+                btn_edytuj_klienta.IsEnabled = false;    
+            }
+            else
+            {
+                btn_edytuj_klienta.IsEnabled = true;
+            }
+           
+            String wyrazenie = iloscslow.ToString() + "/100";
+            label_ilosc.Content = wyrazenie;
+        }
+
+        
     }
 }
 

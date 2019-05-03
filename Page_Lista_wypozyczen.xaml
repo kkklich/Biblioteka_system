@@ -8,8 +8,8 @@
       d:DesignHeight="397" d:DesignWidth="794"
       Title="Page_Lista_wypozyczen">
 
-    <Grid Background="#FFF0EBEB"  >
-        <ListView x:Name="listViewwypozyczenia1" HorizontalAlignment="Left" Height="246" Margin="56,46,0,0" VerticalAlignment="Top" Width="510">
+    <Grid  >
+        <ListView x:Name="listViewwypozyczenia1" HorizontalAlignment="Left" Height="246" Margin="56,46,0,0" VerticalAlignment="Top" Width="510"   >
             <ListView.View>
                 <GridView>
                     <GridViewColumn  Header="id" DisplayMemberBinding="{Binding id_wypozyczenia }" Width="30"/>
@@ -20,17 +20,16 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btn_zamknij_wyp" Content="Zamknij wypożyczenie" HorizontalAlignment="Left" Height="43" Margin="589,46,0,0" VerticalAlignment="Top" Width="174" />
-        <Button x:Name="btn_upadte" Content="Przedłuż wypożyczenie" HorizontalAlignment="Left" Height="41" Margin="589,94,0,0" VerticalAlignment="Top" Width="174"   />
-        <Button x:Name="btn_over" Content="Wypożyczenia przeterminowane" HorizontalAlignment="Left" Height="59" Margin="589,140,0,0" VerticalAlignment="Top" Width="174" />
-        <Button x:Name="Btn_szczegoly" Content="Wyświetl szczegóły" HorizontalAlignment="Left" Height="44" Margin="589,204,0,0" VerticalAlignment="Top" Width="174" />
+        <Button x:Name="btn_zamknij_wyp" Content="Zamknij wypożyczenie" HorizontalAlignment="Left" Height="43" Margin="589,46,0,0" VerticalAlignment="Top" Width="174" Click="Btn_zamknij_wyp_Click" />
+        <Button x:Name="btn_upadte" Content="Przedłuż wypożyczenie" HorizontalAlignment="Left" Height="41" Margin="589,94,0,0" VerticalAlignment="Top" Width="174" Click="Btn_upadte_Click"   />
+        <Button x:Name="btn_over" Content="Wypożyczenia przeterminowane" HorizontalAlignment="Left" Height="59" Margin="589,140,0,0" VerticalAlignment="Top" Width="174" Click="Btn_over_Click" />
+        <Button x:Name="Btn_szczegoly" Content="Wyświetl szczegóły" HorizontalAlignment="Left" Height="44" Margin="589,204,0,0" VerticalAlignment="Top" Width="174" Click="Btn_szczegoly_Click" />
         <Label x:Name="lbl_info" Content="Wszystkie zamówienia" HorizontalAlignment="Left" Height="31" Margin="56,10,0,0" VerticalAlignment="Top" Width="232"/>
-
-
         <TextBox x:Name="txt_Szukaj" HorizontalAlignment="Left" Height="39" Margin="56,348,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="213" TextChanged="Txt_Szukaj_TextChanged" />
         <Label x:Name="label" Content="Wyszukaj wypożyczenie" HorizontalAlignment="Left" Height="41" Margin="56,302,0,0" VerticalAlignment="Top" Width="213" FontSize="18"/>
+        <Label x:Name="lbl_ilosc"  HorizontalAlignment="Left" Height="28" Margin="474,302,0,0" VerticalAlignment="Top" Width="92"/>
 
     </Grid>
-    
-    
+
+
 </Page>
