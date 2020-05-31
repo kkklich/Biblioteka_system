@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BibliotekaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="autor">
+    <Key>
+      <PropertyRef Name="id_autor" />
+    </Key>
+    <Property Name="id_autor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="imie" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nazwisko" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="autorzyksiazki">
+    <Key>
+      <PropertyRef Name="id_ak" />
+    </Key>
+    <Property Name="id_ak" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_aksiazki" Type="int" Nullable="false" />
+    <Property Name="id_autor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="klienci">
+    <Key>
+      <PropertyRef Name="idklient" />
+    </Key>
+    <Property Name="idklient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="imie" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nazwisko" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="numer_telefonu" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="uwagi" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ksiazki">
+    <Key>
+      <PropertyRef Name="idksiazki" />
+    </Key>
+    <Property Name="idksiazki" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tytul" Type="varchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pracownicy">
+    <Key>
+      <PropertyRef Name="idpracownika" />
+    </Key>
+    <Property Name="idpracownika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="imie" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="nazwisko" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="stanowisko" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="dataUrodzenia" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TEMP">
+    <Key>
+      <PropertyRef Name="id_temp" />
+    </Key>
+    <Property Name="id_temp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_klienta" Type="int" />
+    <Property Name="id_ak" Type="int" />
+    <Property Name="data_wypozyczenia" Type="date" Nullable="false" />
+    <Property Name="data_zwrotu" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="wypozyczenia">
+    <Key>
+      <PropertyRef Name="id_wypozyczenia" />
+    </Key>
+    <Property Name="id_wypozyczenia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_klienta" Type="int" Nullable="false" />
+    <Property Name="id_ak" Type="int" Nullable="false" />
+    <Property Name="data_wypozyczenia" Type="date" Nullable="false" />
+    <Property Name="data_zwrotu" Type="date" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__autorzyks__id_ak__3F466844">
+    <End Role="ksiazki" Type="Self.ksiazki" Multiplicity="1" />
+    <End Role="autorzyksiazki" Type="Self.autorzyksiazki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ksiazki">
+        <PropertyRef Name="idksiazki" />
+      </Principal>
+      <Dependent Role="autorzyksiazki">
+        <PropertyRef Name="id_aksiazki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__autorzyks__id_au__403A8C7D">
+    <End Role="autor" Type="Self.autor" Multiplicity="1" />
+    <End Role="autorzyksiazki" Type="Self.autorzyksiazki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autor">
+        <PropertyRef Name="id_autor" />
+      </Principal>
+      <Dependent Role="autorzyksiazki">
+        <PropertyRef Name="id_autor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TEMP__id_ak__47DBAE45">
+    <End Role="autorzyksiazki" Type="Self.autorzyksiazki" Multiplicity="0..1" />
+    <End Role="TEMP" Type="Self.TEMP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autorzyksiazki">
+        <PropertyRef Name="id_ak" />
+      </Principal>
+      <Dependent Role="TEMP">
+        <PropertyRef Name="id_ak" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TEMP__id_klienta__46E78A0C">
+    <End Role="klienci" Type="Self.klienci" Multiplicity="0..1" />
+    <End Role="TEMP" Type="Self.TEMP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klienci">
+        <PropertyRef Name="idklient" />
+      </Principal>
+      <Dependent Role="TEMP">
+        <PropertyRef Name="id_klienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wypozycze__id_ak__440B1D61">
+    <End Role="autorzyksiazki" Type="Self.autorzyksiazki" Multiplicity="1" />
+    <End Role="wypozyczenia" Type="Self.wypozyczenia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="autorzyksiazki">
+        <PropertyRef Name="id_ak" />
+      </Principal>
+      <Dependent Role="wypozyczenia">
+        <PropertyRef Name="id_ak" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wypozycze__id_kl__4316F928">
+    <End Role="klienci" Type="Self.klienci" Multiplicity="1" />
+    <End Role="wypozyczenia" Type="Self.wypozyczenia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="klienci">
+        <PropertyRef Name="idklient" />
+      </Principal>
+      <Dependent Role="wypozyczenia">
+        <PropertyRef Name="id_klienta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BibliotekaModelStoreContainer">
+    <EntitySet Name="autor" EntityType="Self.autor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="autorzyksiazki" EntityType="Self.autorzyksiazki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="klienci" EntityType="Self.klienci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ksiazki" EntityType="Self.ksiazki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pracownicy" EntityType="Self.pracownicy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TEMP" EntityType="Self.TEMP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wypozyczenia" EntityType="Self.wypozyczenia" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__autorzyks__id_ak__3F466844" Association="Self.FK__autorzyks__id_ak__3F466844">
+      <End Role="ksiazki" EntitySet="ksiazki" />
+      <End Role="autorzyksiazki" EntitySet="autorzyksiazki" />
+    </AssociationSet>
+    <AssociationSet Name="FK__autorzyks__id_au__403A8C7D" Association="Self.FK__autorzyks__id_au__403A8C7D">
+      <End Role="autor" EntitySet="autor" />
+      <End Role="autorzyksiazki" EntitySet="autorzyksiazki" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TEMP__id_ak__47DBAE45" Association="Self.FK__TEMP__id_ak__47DBAE45">
+      <End Role="autorzyksiazki" EntitySet="autorzyksiazki" />
+      <End Role="TEMP" EntitySet="TEMP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TEMP__id_klienta__46E78A0C" Association="Self.FK__TEMP__id_klienta__46E78A0C">
+      <End Role="klienci" EntitySet="klienci" />
+      <End Role="TEMP" EntitySet="TEMP" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wypozycze__id_ak__440B1D61" Association="Self.FK__wypozycze__id_ak__440B1D61">
+      <End Role="autorzyksiazki" EntitySet="autorzyksiazki" />
+      <End Role="wypozyczenia" EntitySet="wypozyczenia" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wypozycze__id_kl__4316F928" Association="Self.FK__wypozycze__id_kl__4316F928">
+      <End Role="klienci" EntitySet="klienci" />
+      <End Role="wypozyczenia" EntitySet="wypozyczenia" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

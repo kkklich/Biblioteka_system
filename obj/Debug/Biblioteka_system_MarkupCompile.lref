@@ -1,20 +1,22 @@
 ﻿
 
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Autorzy_Page.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Color.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\MainWindow.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Main_Page.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Okno_dodaj_wspolautora.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Page1.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Page2.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Page_dodaj_klienta.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Page_dodawanie_autorow.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Page_dodawanie_ksiazek.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Page_edycja_usun_ksiazke.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Page_edycja_usuwanie_autorow.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Page_edytuj_usun_klient.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Page_Lista_wypozyczen.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Page_Wypozycz.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Szczegoly.xaml;;
-FD:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\Wyloguj.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Autors\Autorzy_Page.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Main\Color.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\MainWindow.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Main\Dictionary1.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Main\Main_Page.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Autors\Okno_dodaj_wspolautora.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Client\ClientPage.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Books\BookPage.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Client\Page_dodaj_klienta.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Autors\Page_dodawanie_autorow.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Books\Page_dodawanie_ksiazek.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Books\Page_edycja_usun_ksiazke.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Autors\Page_edycja_usuwanie_autorow.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Client\Page_edytuj_usun_klient.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Main\WindowView.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Rent\Page_Lista_wypozyczen.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Rent\Page_Wypozycz.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Rent\Szczegoly.xaml;;
+FC:\Users\rysio\source\repos\Biblioteka_system-master\Main\Wyloguj.xaml;;
 

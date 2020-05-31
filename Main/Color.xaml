@@ -1,0 +1,30 @@
+﻿<Window x:Class="Biblioteka_system.Main.Color"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xct="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:Biblioteka_system.Main"
+        mc:Ignorable="d"
+        Title="Color" Height="400" Width="600">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="C:\Users\rysio\source\repos\Biblioteka_system-master\Main\Dictionary1.xaml">
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+
+    <Grid x:Name="ColorPickers1" >
+
+        <Label x:Name="label" Content="Zmiana koloru" HorizontalAlignment="Left" Height="73" Margin="112,10,0,0" VerticalAlignment="Top" Width="358" Foreground="Brown" FontSize="36" />
+
+        <Button x:Name="btn_ok" Content="OK" HorizontalAlignment="Left" Height="40" Margin="394,287,0,0" VerticalAlignment="Top" Width="127" Click="Btn_ok_Click"/>
+        <xct:ColorPicker x:Name="ColPicker" HorizontalAlignment="Left" Margin="342.567,126.243,0,0" VerticalAlignment="Top" Height="35.757" Width="160.508" SelectedColorChanged="ColPicker_SelectedColorChanged" />
+        <Label x:Name="label1_Copy" Content="Kolor tła" HorizontalAlignment="Left" Height="38" Margin="343,83,0,0" VerticalAlignment="Top" Width="160"/>
+
+    </Grid>
+</Window>

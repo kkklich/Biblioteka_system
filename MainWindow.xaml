@@ -45,6 +45,7 @@
             </MenuItem>
 
         </Menu>
+        <Label x:Name="lblClock" Content="Zegar" HorizontalAlignment="Left" Height="29" Margin="662,-1,0,0" VerticalAlignment="Top" Width="122"/>
 
 
 

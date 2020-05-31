@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\obj\Debug\
+C:\Users\rysio\source\repos\Biblioteka_system-master\obj\Debug\
 Biblioteka_system
 none
 false
 DEBUG;TRACE
-D:\Dokumenty\Programowanie C#\Biblioteka\Biblioteka_Program\Biblioteka_system\App.xaml
-17-951611831
-
-221539734586
-13-1505183044
-Autorzy_Page.xaml;Color.xaml;MainWindow.xaml;Main_Page.xaml;Okno_dodaj_wspolautora.xaml;Page1.xaml;Page2.xaml;Page_dodaj_klienta.xaml;Page_dodawanie_autorow.xaml;Page_dodawanie_ksiazek.xaml;Page_edycja_usun_ksiazke.xaml;Page_edycja_usuwanie_autorow.xaml;Page_edytuj_usun_klient.xaml;Page_Lista_wypozyczen.xaml;Page_Wypozycz.xaml;Szczegoly.xaml;Wyloguj.xaml;
+C:\Users\rysio\source\repos\Biblioteka_system-master\App.xaml
+191730433088
+2-927992921
+33156710625
+23-515545959
+Autors\Autorzy_Page.xaml;Main\Color.xaml;MainWindow.xaml;Main\Dictionary1.xaml;Main\Main_Page.xaml;Autors\Okno_dodaj_wspolautora.xaml;Client\ClientPage.xaml;Books\BookPage.xaml;Client\Page_dodaj_klienta.xaml;Autors\Page_dodawanie_autorow.xaml;Books\Page_dodawanie_ksiazek.xaml;Books\Page_edycja_usun_ksiazke.xaml;Autors\Page_edycja_usuwanie_autorow.xaml;Client\Page_edytuj_usun_klient.xaml;Main\WindowView.xaml;Rent\Page_Lista_wypozyczen.xaml;Rent\Page_Wypozycz.xaml;Rent\Szczegoly.xaml;Main\Wyloguj.xaml;
 
 False
 

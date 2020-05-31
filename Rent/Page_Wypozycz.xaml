@@ -1,0 +1,62 @@
+﻿<Page x:Class="Biblioteka_system.Page_Wypozycz"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Biblioteka_system"
+      mc:Ignorable="d" 
+      d:DesignHeight="397" d:DesignWidth="794"
+      Title="Page_Wypozycz">
+
+    <Grid >
+        <ListView x:Name="Listview_Book" HorizontalAlignment="Left" Height="82" Margin="413,54,0,0" VerticalAlignment="Top" Width="306"  >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Id " DisplayMemberBinding="{Binding IdBook}" Width="auto" />
+                    <GridViewColumn Header="Tytul " DisplayMemberBinding="{Binding Title}" Width="auto" />
+                    <GridViewColumn Header="Autor"  DisplayMemberBinding="{Binding FirstNameSurename }" Width="auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <Label Name="lblwyp" Content="Klienci" HorizontalAlignment="Left" Margin="49,23,0,0" VerticalAlignment="Top" Height="26" Width="93"/>
+        <ListView x:Name="Listview_Client" HorizontalAlignment="Left" Height="64" Margin="22,54,0,0" VerticalAlignment="Top" Width="282" SelectionChanged="Listview_Klienci_SelectionChanged" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding IdClient}" Width="auto" />
+                    <GridViewColumn Header="Imie" DisplayMemberBinding="{Binding Firstname }" Width="auto" />
+                    <GridViewColumn Header="Nazwisko"  DisplayMemberBinding="{Binding Surename}" Width="auto"/>
+                    <GridViewColumn Header="Nr. tel." DisplayMemberBinding="{Binding NrPhone }" Width="auto"/>
+
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="txt_serach" HorizontalAlignment="Left" Height="23" Margin="22,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="Txt_szukaj_klientow_TextChanged" />
+        <Label Content="Wyszukaj klienta:" HorizontalAlignment="Left" Margin="22,123,0,0" VerticalAlignment="Top" />
+
+        <Label Content="Książki" HorizontalAlignment="Left" Margin="408,23,0,0" VerticalAlignment="Top" Height="26" Width="93"/>
+        <TextBox x:Name="txt_serachBook" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="413,171,0,0" TextChanged="Txt_szukaj_ksiazki_TextChanged" />
+        <Label Content="Wyszukaj ksiazke:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="413,141,0,0"/>
+
+        <Button x:Name="btn_addCart" Content="Złóż zamówienie" HorizontalAlignment="Left" Margin="658,181,0,0" VerticalAlignment="Top" Width="112" Height="33" Click="Btn_zamów_Click"   />
+        <Button x:Name="btn_Rent" Content="Wypożycz" HorizontalAlignment="Left" Margin="576,323,0,0" VerticalAlignment="Top" Width="125" Height="45" Click="Btn_Wypozycz_Film_Copy_Click"  />
+        <ListView x:Name="Listview_rent" HorizontalAlignment="Left" Height="122" Margin="219,236,0,0" VerticalAlignment="Top" Width="295" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Imie" DisplayMemberBinding="{Binding firstname}" Width="auto" />
+                    <GridViewColumn Header="Nazwisko"  DisplayMemberBinding="{Binding surename  }" Width="auto"/>
+                    <GridViewColumn Header="Ksiazka"  DisplayMemberBinding="{Binding title}" Width="auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Zamówienia" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="219,203,0,0" Width="152"/>
+        <Label x:Name="lblclient"  HorizontalAlignment="Left" Height="26" Margin="63,191,0,0" VerticalAlignment="Top" Width="111" Background="#FF6DE54F"/>
+        <Label x:Name="label" Content="Imie:" HorizontalAlignment="Left" Height="38" Margin="22,191,0,0" VerticalAlignment="Top" Width="36"/>
+        <Label x:Name="lbl_many"  HorizontalAlignment="Left" Height="28" Margin="461,203,0,0" VerticalAlignment="Top" Width="40"/>
+
+
+    </Grid>
+
+
+</Page>

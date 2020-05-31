@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BibliotekaModel1StoreContainer" CdmEntityContainer="BibliotekaEntities">
+    <EntitySetMapping Name="Author">
+      <EntityTypeMapping TypeName="BibliotekaModel1.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="Surename" ColumnName="Surename" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="IdAuthor" ColumnName="IdAuthor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuthorsBook">
+      <EntityTypeMapping TypeName="BibliotekaModel1.AuthorsBook">
+        <MappingFragment StoreEntitySet="AuthorsBook">
+          <ScalarProperty Name="IdAuthor" ColumnName="IdAuthor" />
+          <ScalarProperty Name="IdBook" ColumnName="IdBook" />
+          <ScalarProperty Name="IdAK" ColumnName="IdAK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="BibliotekaModel1.Books">
+        <MappingFragment StoreEntitySet="Books">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="IdBook" ColumnName="IdBook" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="BibliotekaModel1.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="NrPhone" ColumnName="NrPhone" />
+          <ScalarProperty Name="Surename" ColumnName="Surename" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rent">
+      <EntityTypeMapping TypeName="BibliotekaModel1.Rent">
+        <MappingFragment StoreEntitySet="Rent">
+          <ScalarProperty Name="DateReturn" ColumnName="DateReturn" />
+          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+          <ScalarProperty Name="IdBook" ColumnName="IdBook" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+          <ScalarProperty Name="IdRent" ColumnName="IdRent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workers">
+      <EntityTypeMapping TypeName="BibliotekaModel1.Workers">
+        <MappingFragment StoreEntitySet="Workers">
+          <ScalarProperty Name="BirthDay" ColumnName="BirthDay" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Surename" ColumnName="Surename" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="IdEmployee" ColumnName="IdEmployee" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clientQuantity">
+      <EntityTypeMapping TypeName="BibliotekaModel1.clientQuantity">
+        <MappingFragment StoreEntitySet="clientQuantity">
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

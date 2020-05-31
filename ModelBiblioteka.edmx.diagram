@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="036902f4fcc349f0b5814fc86db5cc1c" Name="Diagram1">
+        <EntityTypeShape EntityType="BibliotekaModel1.Author" Width="1.5" PointX="9.75" PointY="2.875" />
+        <EntityTypeShape EntityType="BibliotekaModel1.AuthorsBook" Width="1.5" PointX="8.875" PointY="0.5" />
+        <EntityTypeShape EntityType="BibliotekaModel1.Books" Width="1.5" PointX="6.125" PointY="0.5" />
+        <EntityTypeShape EntityType="BibliotekaModel1.Clients" Width="1.5" PointX="3" PointY="1.25" />
+        <EntityTypeShape EntityType="BibliotekaModel1.Rent" Width="1.5" PointX="6.25" PointY="3" />
+        <EntityTypeShape EntityType="BibliotekaModel1.Workers" Width="1.5" PointX="0.875" PointY="1.375" />
+        <AssociationConnector Association="BibliotekaModel1.FK__AuthorsBo__IdAut__403A8C7D" />
+        <AssociationConnector Association="BibliotekaModel1.FK__AuthorsBo__IdBoo__3F466844" />
+        <AssociationConnector Association="BibliotekaModel1.FK__Rent__IdBook__440B1D61" />
+        <AssociationConnector Association="BibliotekaModel1.FK__Rent__IdClient__4316F928" />
+        <EntityTypeShape EntityType="BibliotekaModel1.clientQuantity" Width="1.5" PointX="0.75" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

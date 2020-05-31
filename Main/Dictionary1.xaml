@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Biblioteka_system.Main">
+
+
+
+
+        <Style x:Key = "myButtonStyle" TargetType = "Label">
+            <Setter Property = "Height" Value = "30"/>
+            <Setter Property = "Width" Value = "80"/>
+            <Setter Property = "Foreground" Value = "Blue"/>
+            <Setter Property = "Background" Value = "Yellow"/>
+            <Setter Property = "FontSize" Value = "12"/>
+            <Setter Property = "Margin" Value = "10"/>
+        </Style>
+
+
+
+    <SolidColorBrush x:Key="TextColor" Color="#FF121212"/>
+    
+    <Style x:Key = "BtnStyle" TargetType = "Button">
+        <Setter Property = "Height" Value = "53"/>
+        <Setter Property = "Width" Value ="162"/>
+        <Setter Property = "Foreground" Value = "Black"/>
+        <Setter Property = "Background" Value = "Gold"/>
+        <Setter Property = "FontSize" Value = "12"/>
+        <Setter Property = "Margin" Value = "10"/>
+    </Style>
+</ResourceDictionary>

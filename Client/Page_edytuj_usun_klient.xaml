@@ -1,0 +1,29 @@
+﻿<Page x:Class="Biblioteka_system.Client.Page_edytuj_usun_klient"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Biblioteka_system.Client"
+      mc:Ignorable="d" 
+      d:DesignHeight="397" d:DesignWidth="794"
+      Title="Page_edytuj_usun_klient">
+
+    <Grid  >
+        <Label x:Name="label" Content="Edytowanie klientów" HorizontalAlignment="Left" Height="67" Margin="236,10,0,0" VerticalAlignment="Top" Width="331" FontSize="36" Foreground="#FF5A8B50" FontFamily="Sitka Heading"/>
+        <Label x:Name="label1" Content="Imie" HorizontalAlignment="Left" Height="40" Margin="28,99,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="label1_Copy" Content="Nazwisko" HorizontalAlignment="Left" Height="40" Margin="28,144,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="label1_Copy1" Content="Numer tel." HorizontalAlignment="Left" Height="40" Margin="28,189,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="txt_name" HorizontalAlignment="Left" Height="26" Margin="135,103,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="txt_surename" HorizontalAlignment="Left" Height="26" Margin="135,144,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110"/>
+        <TextBox x:Name="txt_nrPhone" HorizontalAlignment="Left" Height="26" Margin="135,189,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="110" TextChanged="txt_nrPhone_TextChanged"/>
+        <TextBox x:Name="txt_info" HorizontalAlignment="Left" Height="56" Margin="135,229,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="146" TextChanged="Txt_uwagi_TextChanged"/>
+        <Button x:Name="btn_EditClient" Content="Edytuj klienta" HorizontalAlignment="Left" Height="42" Margin="357,287,0,0" VerticalAlignment="Top" Width="110" Click="Btn_edytuj_klienta_Click" />
+        <Button x:Name="btn_deleteClienta" Content="Usuń klienta" HorizontalAlignment="Left" Height="42" Margin="506,287,0,0" VerticalAlignment="Top" Width="110" Click="Btn_usun_klienta_Click" />
+        <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Height="33" Margin="28,22,0,0" VerticalAlignment="Top" Width="55" Click="Button_Click"/>
+        <Label x:Name="label1_info" Content="Uwagi" HorizontalAlignment="Left" Height="40" Margin="28,229,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="label_words"  HorizontalAlignment="Left" Height="23" Margin="135,290,0,0" VerticalAlignment="Top" Width="61"/>
+        <Label x:Name="lblWorgNumber"  HorizontalAlignment="Left" Height="26" Margin="281,189,0,0" VerticalAlignment="Top" Width="134"/>
+
+
+    </Grid>
+</Page>

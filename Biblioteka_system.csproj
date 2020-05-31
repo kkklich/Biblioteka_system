@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -49,60 +58,114 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=3.8.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.3.8.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Autorzy_Page.xaml.cs">
+    <Compile Include="Author.cs">
+      <DependentUpon>ModelBiblioteka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorsBook.cs">
+      <DependentUpon>ModelBiblioteka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Autors\Autorzy_Page.xaml.cs">
       <DependentUpon>Autorzy_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Color.xaml.cs">
+    <Compile Include="Books.cs">
+      <DependentUpon>ModelBiblioteka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="clientQuantity.cs">
+      <DependentUpon>ModelBiblioteka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clients.cs">
+      <DependentUpon>ModelBiblioteka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Main\Color.xaml.cs">
       <DependentUpon>Color.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Okno_dodaj_wspolautora.xaml.cs">
+    <Compile Include="Autors\Okno_dodaj_wspolautora.xaml.cs">
       <DependentUpon>Okno_dodaj_wspolautora.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page2.xaml.cs">
-      <DependentUpon>Page2.xaml</DependentUpon>
+    <Compile Include="Books\BookPage.xaml.cs">
+      <DependentUpon>BookPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page_dodaj_klienta.xaml.cs">
+    <Compile Include="Client\Page_dodaj_klienta.xaml.cs">
       <DependentUpon>Page_dodaj_klienta.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page_dodawanie_autorow.xaml.cs">
+    <Compile Include="Autors\Page_dodawanie_autorow.xaml.cs">
       <DependentUpon>Page_dodawanie_autorow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page_dodawanie_ksiazek.xaml.cs">
+    <Compile Include="Books\Page_dodawanie_ksiazek.xaml.cs">
       <DependentUpon>Page_dodawanie_ksiazek.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page_edycja_usun_ksiazke.xaml.cs">
+    <Compile Include="Books\Page_edycja_usun_ksiazke.xaml.cs">
       <DependentUpon>Page_edycja_usun_ksiazke.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page_edycja_usuwanie_autorow.xaml.cs">
+    <Compile Include="Autors\Page_edycja_usuwanie_autorow.xaml.cs">
       <DependentUpon>Page_edycja_usuwanie_autorow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page_edytuj_usun_klient.xaml.cs">
+    <Compile Include="Client\Page_edytuj_usun_klient.xaml.cs">
       <DependentUpon>Page_edytuj_usun_klient.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page_Lista_wypozyczen.xaml.cs">
+    <Compile Include="Main\WindowView.xaml.cs">
+      <DependentUpon>WindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBiblioteka.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBiblioteka.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBiblioteka.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBiblioteka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBiblioteka.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelBiblioteka.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Rent.cs">
+      <DependentUpon>ModelBiblioteka.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rent\Page_Lista_wypozyczen.xaml.cs">
       <DependentUpon>Page_Lista_wypozyczen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page_Wypozycz.xaml.cs">
+    <Compile Include="Rent\Page_Wypozycz.xaml.cs">
       <DependentUpon>Page_Wypozycz.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Show_Lista.cs" />
-    <Compile Include="Szczegoly.xaml.cs">
+    <Compile Include="Main\Show_Lista.cs" />
+    <Compile Include="Rent\Szczegoly.xaml.cs">
       <DependentUpon>Szczegoly.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Wyloguj.xaml.cs">
+    <Compile Include="Main\Wyloguj.xaml.cs">
       <DependentUpon>Wyloguj.xaml</DependentUpon>
     </Compile>
-    <Page Include="Autorzy_Page.xaml">
+    <Compile Include="Workers.cs">
+      <DependentUpon>ModelBiblioteka.tt</DependentUpon>
+    </Compile>
+    <Page Include="Autors\Autorzy_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Color.xaml">
+    <Page Include="Main\Color.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,69 +181,77 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Main_Page.xaml">
+    <Page Include="Main\Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Okno_dodaj_wspolautora.xaml">
+    <Page Include="Main\Main_Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page1.xaml">
+    <Page Include="Autors\Okno_dodaj_wspolautora.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page2.xaml">
+    <Page Include="Client\ClientPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page_dodaj_klienta.xaml">
+    <Page Include="Books\BookPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page_dodawanie_autorow.xaml">
+    <Page Include="Client\Page_dodaj_klienta.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page_dodawanie_ksiazek.xaml">
+    <Page Include="Autors\Page_dodawanie_autorow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page_edycja_usun_ksiazke.xaml">
+    <Page Include="Books\Page_dodawanie_ksiazek.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page_edycja_usuwanie_autorow.xaml">
+    <Page Include="Books\Page_edycja_usun_ksiazke.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page_edytuj_usun_klient.xaml">
+    <Page Include="Autors\Page_edycja_usuwanie_autorow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page_Lista_wypozyczen.xaml">
+    <Page Include="Client\Page_edytuj_usun_klient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Page_Wypozycz.xaml">
+    <Page Include="Main\WindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Szczegoly.xaml">
+    <Page Include="Rent\Page_Lista_wypozyczen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Wyloguj.xaml">
+    <Page Include="Rent\Page_Wypozycz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rent\Szczegoly.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Main\Wyloguj.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main_Page.xaml.cs">
+    <Compile Include="Main\Main_Page.xaml.cs">
       <DependentUpon>Main_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page1.xaml.cs">
-      <DependentUpon>Page1.xaml</DependentUpon>
+    <Compile Include="Client\ClientPage.xaml.cs">
+      <DependentUpon>ClientPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -199,6 +270,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="ModelBiblioteka.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelBiblioteka.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelBiblioteka.edmx.diagram">
+      <DependentUpon>ModelBiblioteka.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -206,6 +285,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelBiblioteka.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBiblioteka.edmx</DependentUpon>
+      <LastGenOutput>ModelBiblioteka.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelBiblioteka.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelBiblioteka.edmx</DependentUpon>
+      <LastGenOutput>ModelBiblioteka.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

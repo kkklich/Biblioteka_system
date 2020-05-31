@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BibliotekaModelStoreContainer" CdmEntityContainer="BibliotekaEntities">
+    <EntitySetMapping Name="autor">
+      <EntityTypeMapping TypeName="BibliotekaModel.autor">
+        <MappingFragment StoreEntitySet="autor">
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="autorzyksiazki">
+      <EntityTypeMapping TypeName="BibliotekaModel.autorzyksiazki">
+        <MappingFragment StoreEntitySet="autorzyksiazki">
+          <ScalarProperty Name="id_ak" ColumnName="id_ak" />
+          <ScalarProperty Name="id_aksiazki" ColumnName="id_aksiazki" />
+          <ScalarProperty Name="id_autor" ColumnName="id_autor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="klienci">
+      <EntityTypeMapping TypeName="BibliotekaModel.klienci">
+        <MappingFragment StoreEntitySet="klienci">
+          <ScalarProperty Name="idklient" ColumnName="idklient" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="numer_telefonu" ColumnName="numer_telefonu" />
+          <ScalarProperty Name="uwagi" ColumnName="uwagi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ksiazki">
+      <EntityTypeMapping TypeName="BibliotekaModel.ksiazki">
+        <MappingFragment StoreEntitySet="ksiazki">
+          <ScalarProperty Name="idksiazki" ColumnName="idksiazki" />
+          <ScalarProperty Name="tytul" ColumnName="tytul" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pracownicy">
+      <EntityTypeMapping TypeName="BibliotekaModel.pracownicy">
+        <MappingFragment StoreEntitySet="pracownicy">
+          <ScalarProperty Name="idpracownika" ColumnName="idpracownika" />
+          <ScalarProperty Name="imie" ColumnName="imie" />
+          <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+          <ScalarProperty Name="stanowisko" ColumnName="stanowisko" />
+          <ScalarProperty Name="dataUrodzenia" ColumnName="dataUrodzenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TEMP">
+      <EntityTypeMapping TypeName="BibliotekaModel.TEMP">
+        <MappingFragment StoreEntitySet="TEMP">
+          <ScalarProperty Name="id_temp" ColumnName="id_temp" />
+          <ScalarProperty Name="id_klienta" ColumnName="id_klienta" />
+          <ScalarProperty Name="id_ak" ColumnName="id_ak" />
+          <ScalarProperty Name="data_wypozyczenia" ColumnName="data_wypozyczenia" />
+          <ScalarProperty Name="data_zwrotu" ColumnName="data_zwrotu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wypozyczenia">
+      <EntityTypeMapping TypeName="BibliotekaModel.wypozyczenia">
+        <MappingFragment StoreEntitySet="wypozyczenia">
+          <ScalarProperty Name="id_wypozyczenia" ColumnName="id_wypozyczenia" />
+          <ScalarProperty Name="id_klienta" ColumnName="id_klienta" />
+          <ScalarProperty Name="id_ak" ColumnName="id_ak" />
+          <ScalarProperty Name="data_wypozyczenia" ColumnName="data_wypozyczenia" />
+          <ScalarProperty Name="data_zwrotu" ColumnName="data_zwrotu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

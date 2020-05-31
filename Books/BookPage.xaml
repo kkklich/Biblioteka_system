@@ -1,0 +1,37 @@
+﻿<Page x:Class="Biblioteka_system.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Biblioteka_system"
+      mc:Ignorable="d" 
+      d:DesignHeight="397" d:DesignWidth="794"
+        Title="Page2">
+
+
+    <Grid >
+        <Label x:Name="label" Content="Książki" HorizontalAlignment="Left" Height="67" Margin="344,10,0,0" VerticalAlignment="Top" Width="120" FontSize="36" Foreground="#FF5A8B50" FontFamily="Sitka Heading"/>
+        <Label x:Name="label2" Content="Wyszukaj książkę:" HorizontalAlignment="Left" Height="29" Margin="10,288,0,0" VerticalAlignment="Top" Width="112"/>
+        <TextBox x:Name="txt_szukaj_ksiazke" HorizontalAlignment="Left" Height="30" Margin="10,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" TextChanged="Txt_szukaj_ksiazke_TextChanged"/>
+        <ListView x:Name="listView_ksiazka"  HorizontalAlignment="Left" Height="206" Margin="10,77,0,0" VerticalAlignment="Top" Width="527" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="idksiazki" DisplayMemberBinding="{Binding IdBook}"    Width="auto" />
+                    <GridViewColumn Header="Tytul" DisplayMemberBinding="{Binding Title}" Width="auto" />
+                    <GridViewColumn Header="Imię"  DisplayMemberBinding="{Binding Firstname}"  Width="auto" />
+                    <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding SureName}" Width="auto" />
+                    
+                    
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <Button x:Name="btn_dodaj_ksiazke" Content="Dodaj książkę" HorizontalAlignment="Left" Height="35" Margin="587,93,0,0" VerticalAlignment="Top" Width="173" Click="Btn_dodaj_ksiazke_Click"/>
+        <Button x:Name="btn_edytuj_ksiazke" Content="Edytuj książkę " HorizontalAlignment="Left" Height="35" Margin="587,145,0,0" VerticalAlignment="Top" Width="173" Click="Btn_edytuj_ksiazke_Click"/>
+        <Button x:Name="btn_usun_ksiazke" Content="Usuń książkę " HorizontalAlignment="Left" Height="35" Margin="587,200,0,0" VerticalAlignment="Top" Width="173" Click="Btn_edytuj_ksiazke_Click"  />
+        <Button x:Name="btn_kolejny_autor" Content="Dodaj współautora" HorizontalAlignment="Left" Height="35" Margin="587,248,0,0" VerticalAlignment="Top" Width="173" Click="Btn_kolejny_autor_Click"/>
+        <Label x:Name="lbl_ilosc" HorizontalAlignment="Left" Height="29" Margin="490,288,0,0" VerticalAlignment="Top" Width="47"/>
+    </Grid>
+
+</Page>

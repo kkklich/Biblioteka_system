@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BibliotekaModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BibliotekaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Author" EntityType="BibliotekaModel1.Author" />
+    <EntitySet Name="AuthorsBook" EntityType="BibliotekaModel1.AuthorsBook" />
+    <EntitySet Name="Books" EntityType="BibliotekaModel1.Books" />
+    <EntitySet Name="Clients" EntityType="BibliotekaModel1.Clients" />
+    <EntitySet Name="Rent" EntityType="BibliotekaModel1.Rent" />
+    <EntitySet Name="Workers" EntityType="BibliotekaModel1.Workers" />
+    <AssociationSet Name="FK__AuthorsBo__IdAut__403A8C7D" Association="BibliotekaModel1.FK__AuthorsBo__IdAut__403A8C7D">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="AuthorsBook" EntitySet="AuthorsBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AuthorsBo__IdBoo__3F466844" Association="BibliotekaModel1.FK__AuthorsBo__IdBoo__3F466844">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="AuthorsBook" EntitySet="AuthorsBook" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rent__IdBook__440B1D61" Association="BibliotekaModel1.FK__Rent__IdBook__440B1D61">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="Rent" EntitySet="Rent" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rent__IdClient__4316F928" Association="BibliotekaModel1.FK__Rent__IdClient__4316F928">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Rent" EntitySet="Rent" />
+    </AssociationSet>
+    <EntitySet Name="clientQuantity" EntityType="BibliotekaModel1.clientQuantity" />
+  </EntityContainer>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="IdAuthor" />
+    </Key>
+    <Property Name="IdAuthor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Surename" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AuthorsBook" Relationship="BibliotekaModel1.FK__AuthorsBo__IdAut__403A8C7D" FromRole="Author" ToRole="AuthorsBook" />
+  </EntityType>
+  <EntityType Name="AuthorsBook">
+    <Key>
+      <PropertyRef Name="IdAK" />
+    </Key>
+    <Property Name="IdAK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdBook" Type="Int32" Nullable="false" />
+    <Property Name="IdAuthor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Author" Relationship="BibliotekaModel1.FK__AuthorsBo__IdAut__403A8C7D" FromRole="AuthorsBook" ToRole="Author" />
+    <NavigationProperty Name="Books" Relationship="BibliotekaModel1.FK__AuthorsBo__IdBoo__3F466844" FromRole="AuthorsBook" ToRole="Books" />
+  </EntityType>
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="IdBook" />
+    </Key>
+    <Property Name="IdBook" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AuthorsBook" Relationship="BibliotekaModel1.FK__AuthorsBo__IdBoo__3F466844" FromRole="Books" ToRole="AuthorsBook" />
+    <NavigationProperty Name="Rent" Relationship="BibliotekaModel1.FK__Rent__IdBook__440B1D61" FromRole="Books" ToRole="Rent" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="IdClient" />
+    </Key>
+    <Property Name="IdClient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Surename" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="NrPhone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Rent" Relationship="BibliotekaModel1.FK__Rent__IdClient__4316F928" FromRole="Clients" ToRole="Rent" />
+  </EntityType>
+  <EntityType Name="Rent">
+    <Key>
+      <PropertyRef Name="IdRent" />
+    </Key>
+    <Property Name="IdRent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdClient" Type="Int32" Nullable="false" />
+    <Property Name="IdBook" Type="Int32" Nullable="false" />
+    <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateReturn" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Books" Relationship="BibliotekaModel1.FK__Rent__IdBook__440B1D61" FromRole="Rent" ToRole="Books" />
+    <NavigationProperty Name="Clients" Relationship="BibliotekaModel1.FK__Rent__IdClient__4316F928" FromRole="Rent" ToRole="Clients" />
+  </EntityType>
+  <EntityType Name="Workers">
+    <Key>
+      <PropertyRef Name="IdEmployee" />
+    </Key>
+    <Property Name="IdEmployee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Surename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Position" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BirthDay" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <Association Name="FK__AuthorsBo__IdAut__403A8C7D">
+    <End Type="BibliotekaModel1.Author" Role="Author" Multiplicity="1" />
+    <End Type="BibliotekaModel1.AuthorsBook" Role="AuthorsBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="IdAuthor" />
+      </Principal>
+      <Dependent Role="AuthorsBook">
+        <PropertyRef Name="IdAuthor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AuthorsBo__IdBoo__3F466844">
+    <End Type="BibliotekaModel1.Books" Role="Books" Multiplicity="1" />
+    <End Type="BibliotekaModel1.AuthorsBook" Role="AuthorsBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="IdBook" />
+      </Principal>
+      <Dependent Role="AuthorsBook">
+        <PropertyRef Name="IdBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rent__IdBook__440B1D61">
+    <End Type="BibliotekaModel1.Books" Role="Books" Multiplicity="1" />
+    <End Type="BibliotekaModel1.Rent" Role="Rent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="IdBook" />
+      </Principal>
+      <Dependent Role="Rent">
+        <PropertyRef Name="IdBook" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rent__IdClient__4316F928">
+    <End Type="BibliotekaModel1.Clients" Role="Clients" Multiplicity="1" />
+    <End Type="BibliotekaModel1.Rent" Role="Rent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="IdClient" />
+      </Principal>
+      <Dependent Role="Rent">
+        <PropertyRef Name="IdClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="clientQuantity">
+    <Key>
+      <PropertyRef Name="IdClient" />
+    </Key>
+    <Property Name="IdClient" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" />
+  </EntityType>
+</Schema>
